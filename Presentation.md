@@ -78,5 +78,6 @@ The first angular project.
 	</script>
 	</body>
 ```
-
+### Daily exercise:
+[Find it here](https://github.com/CphBusCosSem3/Exercises/blob/master/SP/SP6/ExercisesAgularDay1.pdf)
 ## Day 2: 
