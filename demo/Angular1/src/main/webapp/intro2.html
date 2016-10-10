@@ -2,7 +2,7 @@
 <!--
 
 -->
-<html>
+<html ng-app="myApp">
     <head>
         <title>directives, modules ande controllers</title>
         <meta charset="UTF-8">
@@ -22,11 +22,12 @@
         }
     </style>
     </head>
-    <body data-ng-app="myApp" data-ng-cloak=""> <!-- ng-cloak is used to not show any part of the Angular influenced HTML before Angualer is fully loaded. Bedst to not put it on body tag since it stops page from loading gradually-->
-        <div data-ng-controller="myControl as ctrl">
+    <body ng-cloak=""> <!-- ng-cloak is used to not show any part of the Angular influenced HTML before Angualer is fully loaded. Bedst to not put it on body tag since it stops page from loading gradually-->
+        <div ng-controller="myControl as ctrl">
             <h2>X1 a and b: databinding</h2>
-            <p>{{ ctrl.message }}</p>
-            <button data-ng-click="ctrl.changemsg()">Change text</button>
+            <p>controller property: message = {{ ctrl.message }}</p>
+            <p>controller property: message = ng-bind: <span ng-bind="ctrl.message"></span></p>
+            <button ng-click="ctrl.changemsg()">Change text</button>
         </div>
         <div data-ng-controller="myListCtrl as listctrl" >
             <span>{{ listctrl.persons[0].name +" from "+ listctrl.persons[0].city}}</span>
@@ -80,10 +81,10 @@
 <!-- ******************************************************************************************-->
         <script>
 //            angular.module(' module name ', [ other modules to depend on]).controller(' controller name ',[ dependency1, dependency2,... last element in this array is the actual controller function]);
-            angular.module('myApp', [])
+            var app = angular.module('myApp', [])
                     .controller('myControl',[function(){
                         var self = this;
-                        self.message = "hello there";
+                        self.message = "Hello there";
                         self.changemsg = function(){
                             self.message = "Hello and good day";
                         };
@@ -92,15 +93,17 @@
                     .controller('', [function(){ 
                             //add code here
                         }]);
-            angular.module('myApp') //use an existing module when not applying []
-                    .controller('myListCtrl', [function(){
+            
+    //angular.module('myApp') //use an existing module when not applying []
+                    app.controller('myListCtrl', [function(){
                             var self = this;
                             self.persons = [
                                 {name: 'Henrik', city: 'Fredensborg'}, 
                                 {name: 'Palle', city: 'Padborg'}, 
                                 {name: 'Troels', city: 'Troense'}
                             ];
-                    }]).controller('notesController', [function(){
+                    }])
+                        app.controller('notesController', [function(){
                         var self = this;
                         self.notes = [
                             {label: 'First Note', done: false, assignee: 'Shyam'},
