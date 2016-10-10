@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    </head>
+    <body data-ng-app="">
+        <!--data binding using the double moustache-->
+        <div>Hello {{1+2}}</div>
+        
+        <!--Use ng-model for form elements (2 way binding) not ng-bind, since: ng-bind binds the text content of the element, not its value-->
+        
+        <input type="text" data-ng-model="name" placeholder="Enter your name"/><br><!-- Two-way-Binding -->
+        <h2 data-ng-bind="name"></h2> <!--data-ng-bind (one-way-binding) is equivalent to binding with the {{}} (double moustache)-->
+        
+    </body>
+</html>
