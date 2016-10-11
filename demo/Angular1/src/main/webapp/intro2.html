@@ -36,7 +36,7 @@
 
         <h2>X2: Now loop the list of persons</h2>
         <div data-ng-controller="myListCtrl as listctrl" >
-            <div data-ng-repeat="person in listctrl.persons">
+            <div ng-repeat="person in listctrl.persons">
                 <span data-ng-bind='person.name'></span>
                 <span>from {{person.city}}</span> <!-- Two different ways of databinding in the 2 span tags ng-bind shows immidiately while double brackets translates after the page is loaded (can cause a short flicker on the page initially)-->
             </div>
@@ -56,7 +56,7 @@
 <!-- ******************************************************************************************-->
         <h2>X4: Looping an object by key-value pairs (person, note)</h2>
         <div data-ng-controller='objectListCtrl as oList'>
-            <div data-ng-repeat='(author, note) in oList.notes'><!--key-value pair is looped when looping an object / object properties sorted by case and alphabetic-->
+            <div ng-repeat='(author, note) in oList.notes'><!--key-value pair is looped when looping an object / object properties sorted by case and alphabetic-->
                 <span class="author" ng-bind="author"> </span>:
                 <span class="label"> {{note.label}} </span>
                 <span>First Element: {{$first}}  ,   </span>
